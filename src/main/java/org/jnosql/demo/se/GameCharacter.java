@@ -13,7 +13,7 @@ import java.util.UUID;
 @Entity
 @DiscriminatorColumn("type")
 @Inheritance
-public abstract class Player {
+public abstract class GameCharacter {
 
     @Id
     protected UUID id;
@@ -33,8 +33,8 @@ public abstract class Player {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Player player = (Player) o;
-        return Objects.equals(id, player.id);
+        GameCharacter gameCharacter = (GameCharacter) o;
+        return Objects.equals(id, gameCharacter.id);
     }
 
     @Override

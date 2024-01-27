@@ -4,7 +4,7 @@ import jakarta.nosql.Column;
 import org.eclipse.jnosql.mapping.DiscriminatorValue;
 
 @DiscriminatorValue("sonic")
-public class Sonic extends Player {
+public class Sonic extends GameCharacter {
 
     @Column
     private String zone;
