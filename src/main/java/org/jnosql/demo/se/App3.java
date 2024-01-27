@@ -13,34 +13,31 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import jakarta.nosql.document.DocumentTemplate;
 import net.datafaker.Faker;
 
 import java.util.List;
 
 
-public class App {
+public class App3 {
 
 
     public static void main(String[] args) {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
-            for (int index = 0; index < 5; index++) {
-                Mario mario = Mario.of(faker);
+            SonicRepository repository = container.select(SonicRepository.class).get();
+            for (int index = 0; index < 0; index++) {
                 Sonic sonic = Sonic.of(faker);
-                template.insert(List.of(mario, sonic));
+                repository.save(sonic);
             }
 
-            long count = template.count(GameCharacter.class);
-            System.out.println("Total of GameCharacter: " + count);
+            long count = repository.count();
+            System.out.println("Total of Sonic: " + count);
 
-            System.out.println("Find all by Mario: " + template.select(Mario.class).stream().toList());
-            System.out.println("Find all by Mario: " + template.select(Sonic.class).stream().toList());
+            System.out.println("Find all by Sonic: " + repository.findAll().toList());
         }
         System.exit(0);
     }
 
-    private App() {
+    private App3() {
     }
 }

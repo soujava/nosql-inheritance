@@ -19,28 +19,27 @@ import net.datafaker.Faker;
 import java.util.List;
 
 
-public class App {
+public class App2 {
 
 
     public static void main(String[] args) {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
+            Console repository = container.select(Console.class).get();
             for (int index = 0; index < 5; index++) {
                 Mario mario = Mario.of(faker);
                 Sonic sonic = Sonic.of(faker);
-                template.insert(List.of(mario, sonic));
+                repository.saveAll(List.of(mario, sonic));
             }
 
-            long count = template.count(GameCharacter.class);
+            long count = repository.count();
             System.out.println("Total of GameCharacter: " + count);
 
-            System.out.println("Find all by Mario: " + template.select(Mario.class).stream().toList());
-            System.out.println("Find all by Mario: " + template.select(Sonic.class).stream().toList());
+            System.out.println("Find all by Mario: " + repository.findAll().toList());
         }
         System.exit(0);
     }
 
-    private App() {
+    private App2() {
     }
 }
