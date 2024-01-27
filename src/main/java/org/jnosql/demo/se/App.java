@@ -16,6 +16,8 @@ import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.nosql.document.DocumentTemplate;
 import net.datafaker.Faker;
 
+import java.util.List;
+
 
 public class App {
 
@@ -24,13 +26,11 @@ public class App {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
-            for (int index = 0; index < 100; index++) {
-                Beer beer = Beer.of(faker);
-                template.insert(beer);
+            for (int index = 0; index < 10; index++) {
+                Mario mario = Mario.of(faker);
+                Sonic sonic = Sonic.of(faker);
+                template.insert(List.of(mario, sonic));
             }
-
-            template.select(Beer.class).where("style").eq("Pilsner").orderBy("hop").desc()
-                    .stream().forEach(System.out::println);
 
         }
         System.exit(0);

@@ -30,7 +30,7 @@ public class Mario extends GameCharacter {
                 '}';
     }
 
-    public Mario of(Faker faker){
+    public static Mario of(Faker faker){
         SuperMario superMario = faker.superMario();
         var player = new Mario();
         player.id = UUID.randomUUID();
