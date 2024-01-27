@@ -19,12 +19,13 @@ public class Sonic extends GameCharacter {
     @Override
     public String toString() {
         return "Sonic{" +
-                "id=" + id +
+                "zone='" + zone + '\'' +
+                ", id=" + id +
+                ", type=" + type +
                 ", character='" + character + '\'' +
                 ", game='" + game + '\'' +
                 '}';
     }
-
 
     public static Sonic of(Faker faker){
         SonicTheHedgehog sonic = faker.sonicTheHedgehog();

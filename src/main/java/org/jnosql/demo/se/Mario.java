@@ -26,7 +26,9 @@ public class Mario extends GameCharacter {
     @Override
     public String toString() {
         return "Mario{" +
-                "id=" + id +
+                "locations='" + locations + '\'' +
+                ", id=" + id +
+                ", type=" + type +
                 ", character='" + character + '\'' +
                 ", game='" + game + '\'' +
                 '}';

@@ -31,8 +31,12 @@ public class App {
                 Sonic sonic = Sonic.of(faker);
                 template.insert(List.of(mario, sonic));
             }
-            template.select(GameCharacter.class).stream().forEach(System.out::println);
 
+            long count = template.count(GameCharacter.class);
+            System.out.println("Total of GameCharacter: " + count);
+
+            System.out.println("Find all by Mario: " + template.select(Mario.class).stream().toList());
+            System.out.println("Find all by Mario: " + template.select(Sonic.class).stream().toList());
         }
         System.exit(0);
     }
