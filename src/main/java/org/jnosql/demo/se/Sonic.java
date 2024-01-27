@@ -1,14 +1,15 @@
 package org.jnosql.demo.se;
 
 import jakarta.nosql.Column;
+import jakarta.nosql.Entity;
 import net.datafaker.Faker;
 import net.datafaker.providers.videogame.SonicTheHedgehog;
-import net.datafaker.providers.videogame.SuperMario;
 import org.eclipse.jnosql.mapping.DiscriminatorValue;
 
 import java.util.UUID;
 
-@DiscriminatorValue("sonic")
+@Entity
+@DiscriminatorValue("SONIC")
 public class Sonic extends GameCharacter {
 
     @Column

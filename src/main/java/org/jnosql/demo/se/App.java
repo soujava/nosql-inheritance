@@ -26,11 +26,12 @@ public class App {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
-            for (int index = 0; index < 10; index++) {
+            for (int index = 0; index < 0; index++) {
                 Mario mario = Mario.of(faker);
                 Sonic sonic = Sonic.of(faker);
                 template.insert(List.of(mario, sonic));
             }
+            template.select(GameCharacter.class).stream().forEach(System.out::println);
 
         }
         System.exit(0);

@@ -4,6 +4,7 @@ package org.jnosql.demo.se;
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
+import org.eclipse.jnosql.mapping.Convert;
 import org.eclipse.jnosql.mapping.DiscriminatorColumn;
 import org.eclipse.jnosql.mapping.Inheritance;
 
@@ -16,7 +17,11 @@ import java.util.UUID;
 public abstract class GameCharacter {
 
     @Id
+    @Convert(UUIDConverter.class)
     protected UUID id;
+
+    @Column
+    protected GameType type;
 
     @Column
     protected String character;
