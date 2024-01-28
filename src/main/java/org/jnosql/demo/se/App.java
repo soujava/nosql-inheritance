@@ -26,11 +26,9 @@ public class App {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
-            for (int index = 0; index < 5; index++) {
-                Mario mario = Mario.of(faker);
-                Sonic sonic = Sonic.of(faker);
-                template.insert(List.of(mario, sonic));
-            }
+            Mario mario = Mario.of(faker);
+            Sonic sonic = Sonic.of(faker);
+            template.insert(List.of(mario, sonic));
 
             long count = template.count(GameCharacter.class);
             System.out.println("Total of GameCharacter: " + count);
