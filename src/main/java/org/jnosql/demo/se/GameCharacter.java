@@ -21,14 +21,12 @@ public abstract class GameCharacter {
     protected UUID id;
 
     @Column
-    protected GameType type;
-
-    @Column
     protected String character;
 
     @Column
     protected String game;
 
+    public abstract GameType getType();
 
     @Override
     public boolean equals(Object o) {

@@ -15,13 +15,17 @@ public class Sonic extends GameCharacter {
     @Column
     private String zone;
 
+    @Override
+    public GameType getType() {
+        return GameType.SONIC;
+    }
 
     @Override
     public String toString() {
         return "Sonic{" +
                 "zone='" + zone + '\'' +
                 ", id=" + id +
-                ", type=" + type +
+                ", type=" + GameType.SONIC +
                 ", character='" + character + '\'' +
                 ", game='" + game + '\'' +
                 '}';

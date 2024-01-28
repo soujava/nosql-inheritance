@@ -17,6 +17,10 @@ public class Mario extends GameCharacter {
     private String locations;
 
 
+    @Override
+    public GameType getType() {
+        return GameType.MARIO;
+    }
 
     public String getLocations() {
         return locations;
@@ -28,7 +32,7 @@ public class Mario extends GameCharacter {
         return "Mario{" +
                 "locations='" + locations + '\'' +
                 ", id=" + id +
-                ", type=" + type +
+                ", type=" + GameType.SONIC +
                 ", character='" + character + '\'' +
                 ", game='" + game + '\'' +
                 '}';
@@ -43,4 +47,6 @@ public class Mario extends GameCharacter {
         player.locations = superMario.locations();
         return player;
     }
+
+
 }
